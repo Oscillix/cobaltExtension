@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlInput = document.getElementById('url');
     const autoBtn = document.getElementById('auto-btn');
     const audioBtn = document.getElementById('audio-btn');
+    const download = document.getElementById('download-btn');
     const form = document.getElementById('download-form');
     const settingsBtn = document.getElementById('settings-btn');
     const statusLbl = document.getElementById('statuslabel');
@@ -41,7 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 isAudioOnly: isAudioOnly
             };
 
-            result.textContent = "Getting url from cobalt...";
+            // result.textContent = "Getting url from cobalt...";
+            download.textContent = "Getting url from cobalt..."
             fetch('https://api.cobalt.tools/api/json', {
                 method: 'POST',
                 headers: {
@@ -53,13 +55,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === 'success' || data.status === 'stream') {
-                        result.textContent = "Success, downloading!"
+                        download.textContent = "Success, downloading!"
                         window.location = data.url
                         setTimeout(function(){
-                            result.textContent = ""
-                        }, 4000);
+                            download.textContent = "\uD83D\uDCBE Download";
+                        }, 5000);
                     } else {
-                        result.textContent = data.text;
+                        console.warn(data.status)
+                        download.textContent = "\uD83D\uDCBE Download";
+                        result.textContent = `Cobalt API Returned ${data.status}: ${data.text}`;
+                        setTimeout(function(){
+                            result.textContent = "";
+                        }, 10000);
                     }
                 })
                 .catch(error => {

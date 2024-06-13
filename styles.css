@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    padding: 10px;
+    font-size: 14px;
+    width: 330px;
+    border: none;
+    border-bottom: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    outline: none;
+}
+
+.input-group .btn {
+    padding: 10px;
+    margin-left: 10px;
+    background-color: #141414;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+}
+
+.options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #141414;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    border: 2px solid #1e1e1e;
+}
+
+.btn.active {
+    color: black;
+    background-color: #ececec;
+    border: 2px solid #ffffff;
+}
+
+#download-btn,
+#settings-btn {
+    padding: 10px 20px;
+    background-color: #141414;
+    border: 2px solid #1e1e1e;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#result {
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}

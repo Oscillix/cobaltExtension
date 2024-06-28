@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Cobalt Video Downloader",
+  "name": "cobalt video downloader",
   "version": "1.0",
   "author": "oscillix",
-  "description": "Download videos using Cobalt API.",
+  "description": "Download videos using cobalt API.",
   "permissions": [
     "activeTab",
     "storage",
@@ -18,9 +18,6 @@
     }
   },
   "options_page": "settings.html",
-  "background": {
-    "service_worker": "background.js"
-  },
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

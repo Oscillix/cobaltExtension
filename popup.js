@@ -54,16 +54,23 @@ document.addEventListener('DOMContentLoaded', function () {
             })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.status === 'success' || data.status === 'stream') {
+                    if (data.text === "")
+                        data.text = "ok"
+
+                    if (data.status === 'success' || data.status === 'stream' || data.status === "redirect") {
                         download.textContent = "Success, downloading!"
-                        window.location = data.url
+                        if (data.status === "redirect" || data.text === "ok") {
+                            chrome.tabs.create({ url: data.url });
+                        } else {
+                            window.location = data.url
+                        }
                         setTimeout(function(){
                             download.textContent = "\uD83D\uDCBE Download";
                         }, 5000);
                     } else {
-                        console.warn(data.status)
+                        console.warn(`cobalt API Returned ${data.status}: ${data.text}`)
                         download.textContent = "\uD83D\uDCBE Download";
-                        result.textContent = `Cobalt API Returned ${data.status}: ${data.text}`;
+                        result.textContent = `cobalt API Returned ${data.status}: ${data.text}`;
                         setTimeout(function(){
                             result.textContent = "";
                         }, 10000);

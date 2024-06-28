@@ -64,14 +64,14 @@ document.addEventListener('DOMContentLoaded', function () {
                         } else {
                             window.location = data.url
                         }
-                        setTimeout(function(){
+                        setTimeout(function () {
                             download.textContent = "\uD83D\uDCBE Download";
                         }, 5000);
                     } else {
                         console.warn(`cobalt API Returned ${data.status}: ${data.text}`)
                         download.textContent = "\uD83D\uDCBE Download";
                         result.textContent = `cobalt API Returned ${data.status}: ${data.text}`;
-                        setTimeout(function(){
+                        setTimeout(function () {
                             result.textContent = "";
                         }, 10000);
                     }
